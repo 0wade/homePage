@@ -437,7 +437,7 @@ hr {
 }
 
 .ribbon.left{
-  left: -42px;
+  left: -18px;
   -moz-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);

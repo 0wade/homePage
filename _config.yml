@@ -1,13 +1,9 @@
 # Site settings
-<<<<<<< HEAD
-title: Dong Liang's CV
-=======
 title: Mr Chen's CV
->>>>>>> origin/master
-description: ddbullfrog's CV
-favicon: /assets/img/avatar.JPG
-baseurl: https://ddbullfrog.github.io/resumecard
-url: https://ddbullfrog.github.io/resumecard
+description: Mr Chen's CV
+favicon: assets/img/avatar.jpg
+baseurl: https://github.com/0wade/homePage
+url: https://github.com/0wade/homePage
 rss_url: /pages/atom.xml
 google_analytics: UA-63653234-1
 
