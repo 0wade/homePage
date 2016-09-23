@@ -1,5 +1,5 @@
 # Site settings
-title: Dong Liang's CV 
+title: Dong Liang's CV
 description: ddbullfrog's CV
 favicon: /assets/img/avatar.JPG
 baseurl: https://ddbullfrog.github.io/resumecard
@@ -14,29 +14,27 @@ exclude: [vendor]
 
 # Author settings
 author:
-  name: Dong Liang
-  title: Java Developer
-  address: Auckland, New Zealand
-  email: dongg.liang@gmail.com
-  link: http://ddbullfrog.com
+  name: Mr.Chen
+  title: Web Developer
+  address: ShanTou, China
+  email: 471816299@qq.com
+  link: http://0wade.github.io/homePage/
   weibo:
-  github: ddbullfrog
-  linkedin: ddbullfrog
-  twitter: ddbullfrog
+  github: 0wade
   gavatar: /resumecard/assets/img/avatar.JPG
   stackoverflow:
 #  stackoverflow: 4582127
   workHistory:
     - work1:
-      company: Finzsoft Solutions Ltd
-      location: Auckland, New Zealand
-      title: Java Developer
-      started: 2014
-      duration: (2014 - Present)
+      company:  Guangzhou Nobcare Ltd
+      location: Guangzhou, China
+      title: Web Developer
+      started: 2015
+      duration: (2015 03 - 2016 03)
       description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
     - work2:
       company: Agfa HealthCare
-      location: Shanghai, China
+      location: Guangzhou, China
       title: Java Developer
       started: 2012
       duration: (2012 - 2014)
@@ -51,11 +49,11 @@ author:
   educationHistory:
     - education1:
       organization: Northeastern University
-      location: Shenyang, China
-      degree: Bachelor
-      major: Software Engineering
-      started: 2005
-      duration: (2005 - 2009)
+      location: 韶关, China
+      学历: Bachelor
+      专业: Software
+      started: 2012
+      duration: (2012 - 2015)
       description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
   languages:
     - language1:
@@ -72,14 +70,20 @@ author:
       name: HTML
       percentage: 100%
     - skill2:
+      name: CSS
+      percentage: 100%
+    - skill3:
+      name: jQuery
+      percentage: 100%
+    - skill4:
       name: Bootstrap
       percentage: 90%
-    - skill3:
+    - skill5:
       name: JavaScript
       percentage: 70%
-    - skill4:
+    - skill6:
       name: AngularJS
       percentage: 70%
-    - skill5:
-      name: Java/Java EE
-      percentage: 90%
+    - skill7:
+      name: nodeJs
+      percentage: 40%
