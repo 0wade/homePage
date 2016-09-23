@@ -1,5 +1,5 @@
 # Site settings
-title: Dong Liang's CV 
+title: Dong Liang's CV
 description: ddbullfrog's CV
 favicon: /assets/img/avatar.JPG
 baseurl: https://ddbullfrog.github.io/resumecard
@@ -14,9 +14,9 @@ exclude: [vendor]
 
 # Author settings
 author:
-  name: Dong Liang
-  title: Java Developer
-  address: Auckland, New Zealand
+  name: Mr.Chen
+  title: Web Developer
+  address: ShanTou, China
   email: dongg.liang@gmail.com
   link: http://ddbullfrog.com
   weibo:
