@@ -1,5 +1,9 @@
 # Site settings
+<<<<<<< HEAD
 title: Dong Liang's CV
+=======
+title: Mr Chen's CV
+>>>>>>> origin/master
 description: ddbullfrog's CV
 favicon: /assets/img/avatar.JPG
 baseurl: https://ddbullfrog.github.io/resumecard
