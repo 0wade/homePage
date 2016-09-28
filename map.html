@@ -67,7 +67,7 @@
                             map.centerAndZoom(point, 14);
                         })
                     }
-                    var type=navigator.appVersion.indexOf('Mobile')!=-1?'mb':'pc';
+                    var type=sessionStorage.getItem('type')||navigator.appVersion.indexOf('Mobile')!=-1?'mb':'pc';
                     if(type==='pc'&&!sessionStorage.getItem('map')){
                         document.getElementById('iploc').style.display='block';
                         $.get('//api.map.baidu.com/highacciploc/v1?qcip&qterm=mb&ak=sVywcx42a8QOIiujGinrHGgM&coord=bd09ll&callback_type=jsonp',function(data){
