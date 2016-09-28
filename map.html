@@ -9,6 +9,7 @@
             html{height:100%}
             body{height:100%;margin:0px;padding:0px}
             #container{height:100%}
+            #iploc{display: none;}
             .ipLocCont .icon {
                 width: 26px;
                 height: 26px;
@@ -68,6 +69,7 @@
                     }
                     var type=navigator.appVersion.indexOf('Mobile')!=-1?'mb':'pc';
                     if(type==='pc'&&!sessionStorage.getItem('map')){
+                        document.getElementById('iploc').style.display='block';
                         $.get('//api.map.baidu.com/highacciploc/v1?qcip&qterm=mb&ak=sVywcx42a8QOIiujGinrHGgM&coord=bd09ll&callback_type=jsonp',function(data){
                             if(data.result.error=='161'){
                                 map(data);
@@ -75,6 +77,7 @@
                             }
                         },'jsonp');
                     }else if(type==='pc'){
+                        document.getElementById('iploc').style.display='block';
                         var data=JSON.parse(sessionStorage.getItem('map'));
                         map(data);
                     }else {
@@ -82,6 +85,8 @@
                     	var point = new BMap.Point();
                     	map.centerAndZoom(point,11);
                     	var geolocation = new BMap.Geolocation();
+                        var geolocationControl = new BMap.GeolocationControl();
+                        map.addControl(geolocationControl);                        
                     	geolocation.getCurrentPosition(function(r){
                     		if(this.getStatus() == BMAP_STATUS_SUCCESS){
                     			var mk = new BMap.Marker(r.point);
