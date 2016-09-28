@@ -98,7 +98,6 @@
                                 map.panTo(r.point);
                                 $.get('//api.map.baidu.com/geocoder/v2/?ak=sVywcx42a8QOIiujGinrHGgM&callback=renderReverse&location='+lat+','+lng+'&output=json&pois=1',function(data){
                                     if(data.status==0){
-                                        console.log(data.result.sematic_description);
                                         var label = new BMap.Label(data.result.sematic_description,{offset:{width:-50,height:-50}});
                                         label.setStyle({color:"#000",fontSize:"13px",height:'30px',lineHeight:'30px',padding:'0 14px',border:'1px solid rgba(51,51,51,.2)',boxShadow:'2px 2px 2px 0 rgba(0,0,0,.2)'});
                                         marker.setLabel(label);
@@ -111,7 +110,7 @@
                     	},{enableHighAccuracy: true})
                         geolocationControl.addEventListener("locationSuccess", function(e){
                             var point=e.point;
-                            var Icon=new BMap.Icon('/images/ipLocation.png',{width:12,height:12});
+                            var Icon=new BMap.Icon('/homePage/assets/img/ipLocation.png',{width:12,height:12});
                             var marker = new BMap.Marker(point,{icon:Icon});        // 创建标注
                             map.centerAndZoom(point,18);
                             var lat=point.lat;
