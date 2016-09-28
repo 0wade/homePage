@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style type="text/css">
+            html{height:100%}
+            body{height:100%;margin:0px;padding:0px}
+            #container{height:100%}
+            .ipLocCont .icon {
+                width: 26px;
+                height: 26px;
+                overflow: hidden;
+                background-color: #fff;
+                text-align: center;
+                cursor: pointer;
+                line-height: 26px;
+                float: left;
+                box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+            }
+            .ipLocCont .icon .success {
+                background-position: -14px 0;
+            }
+            .ipLocCont .icon span {
+                width: 14px;
+                height: 14px;
+                vertical-align: middle;
+                display: inline-block;
+                background: url(http://webmap2.map.bdstatic.com/wolfman/static/common/images/ipLocation/ipLocation_ac75181.png);
+                background-size: 76px,auto;
+            }
+            .BMap_cpyCtrl.BMap_noprint.anchorBL{display: none;}
+        </style>
+        <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <div id="iploc" class="ipLocCont BMap_noprint anchorBR" style="position: absolute; z-index: 10; bottom: 50px; right: 10px; top: auto; left: auto;">
+            <div class="icon"><span class="success"></span></div>
+        </div>
+        <script src='http://api.map.baidu.com/api?v=2.0&ak=sVywcx42a8QOIiujGinrHGgM'></script>
+        <script>
+            $(function(){
+                    function map(data) {
+                        var lat=data.content.location.lat;
+                        var lng=data.content.location.lng;
+                        var map = new BMap.Map("container");          // 创建地图实例
+                        var point = new BMap.Point(lng, lat);  // 创建点坐标
+                        var iploc=document.getElementById('iploc');
+                        map.centerAndZoom(point, 11);                 // 初始化地图，设置中心点坐标和地图级别
+                        var Icon=new BMap.Icon('//webmap2.map.bdstatic.com/wolfman/static/common/images/ipLocation/ipLocation_ac75181.png',{width:12,height:12});
+                        var marker = new BMap.Marker(point,{icon:Icon});        // 创建标注
+                        map.addOverlay(marker);                     // 将标注添加到地图中
+                        map.enableScrollWheelZoom();
+                        $.get('//api.map.baidu.com/geocoder/v2/?ak=sVywcx42a8QOIiujGinrHGgM&callback=renderReverse&location='+lat+','+lng+'&output=json&pois=0',function(data){
+                            var label = new BMap.Label(data.result.sematic_description,{offset:{width:-50,height:-50}});
+                            label.setStyle({color:"#000",fontSize:"13px",height:'30px',lineHeight:'30px',padding:'0 14px',border:'1px solid rgba(51,51,51,.2)',boxShadow:'2px 2px 2px 0 rgba(0,0,0,.2)'});
+                            marker.setLabel(label);
+                        },'jsonp')
+                        iploc.addEventListener('click',function(){
+                            map.centerAndZoom(point, 14);
+                        })
+                        iploc.addEventListener('touchstart',function(){
+                            map.centerAndZoom(point, 14);
+                        })
+                    }
+                    var type=navigator.appVersion.indexOf('Mobile')!=-1?'mb':'pc';
+                    if(!sessionStorage.getItem('map')){
+                        $.get('//api.map.baidu.com/highacciploc/v1?qcip&qterm=mb&ak=sVywcx42a8QOIiujGinrHGgM&coord=bd09ll&callback_type=jsonp',function(data){
+                            console.log(data);
+                            if(data.result.error=='161'){
+                                map(data);
+                                sessionStorage.setItem('map',JSON.stringify(data));
+                            }
+                        },'jsonp');
+                    }else if(type==='pc'||type==='mb'){
+                        var data=JSON.parse(sessionStorage.getItem('map'));
+                        map(data);
+                    }else {
+                        var map = new BMap.Map("container");
+                    	var point = new BMap.Point();
+                    	map.centerAndZoom(point,11);
+                    	var geolocation = new BMap.Geolocation();
+                    	geolocation.getCurrentPosition(function(r){
+                    		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                    			var mk = new BMap.Marker(r.point);
+                    			map.addOverlay(mk);
+                    			map.panTo(r.point);
+                    		}
+                    		else {
+                    			alert('failed'+this.getStatus());
+                    		}
+                    	},{enableHighAccuracy: true})
+                    }
+            })
+        </script>
+    </body>
+</html>
