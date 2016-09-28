@@ -67,9 +67,8 @@
                         })
                     }
                     var type=navigator.appVersion.indexOf('Mobile')!=-1?'mb':'pc';
-                    if(!sessionStorage.getItem('map')){
+                    if(type==='pc'&&!sessionStorage.getItem('map')){
                         $.get('//api.map.baidu.com/highacciploc/v1?qcip&qterm=mb&ak=sVywcx42a8QOIiujGinrHGgM&coord=bd09ll&callback_type=jsonp',function(data){
-                            console.log(data);
                             if(data.result.error=='161'){
                                 map(data);
                                 sessionStorage.setItem('map',JSON.stringify(data));
