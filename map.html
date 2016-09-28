@@ -28,7 +28,7 @@
                 height: 14px;
                 vertical-align: middle;
                 display: inline-block;
-                background: url(/assets/img/ipLocation.png);
+                background: url(/homePage/assets/img/ipLocation.png);
                 background-size: 76px,auto;
             }
             .BMap_cpyCtrl.BMap_noprint.anchorBL{display: none;}
@@ -50,7 +50,7 @@
                         var point = new BMap.Point(lng, lat);  // 创建点坐标
                         var iploc=document.getElementById('iploc');
                         map.centerAndZoom(point, 11);                 // 初始化地图，设置中心点坐标和地图级别
-                        var Icon=new BMap.Icon('//webmap2.map.bdstatic.com/wolfman/static/common/images/ipLocation/ipLocation_ac75181.png',{width:12,height:12});
+                        var Icon=new BMap.Icon('/homePage/assets/img/ipLocation.png',{width:12,height:12});
                         var marker = new BMap.Marker(point,{icon:Icon});        // 创建标注
                         map.addOverlay(marker);                     // 将标注添加到地图中
                         map.enableScrollWheelZoom();
