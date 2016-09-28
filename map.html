@@ -74,7 +74,7 @@
                                 sessionStorage.setItem('map',JSON.stringify(data));
                             }
                         },'jsonp');
-                    }else if(type==='pc'||type==='mb'){
+                    }else if(type==='pc'){
                         var data=JSON.parse(sessionStorage.getItem('map'));
                         map(data);
                     }else {
